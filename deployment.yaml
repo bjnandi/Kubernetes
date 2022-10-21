@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gule-ecr
+spec:
+  selector:
+    matchLabels:
+      run: gule-ecr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: gule-ecr
+    spec:
+      containers:
+      - name: gule-ecr
+        image: account_id.dkr.ecr.ap-south-1.amazonaws.com/glue-private:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: glue
