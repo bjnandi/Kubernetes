@@ -1,0 +1,11 @@
+apiVersion: v1
+ kind: Service
+ metadata:
+   name: gule-ecr-svc
+ spec:
+   selector:
+     run: gule-ecr
+   ports:
+     - port: 80
+       targetPort: 80
+   type: LoadBalancer
